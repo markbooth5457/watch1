@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var countries = ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"].shuffled()
     @State private var flagDict = ["Malta": "🇲🇹" ,"Argentina": "🇦🇷", "Mauritius":"🇲🇺", "Austria":"🇦🇹", "Maldives":"🇲🇻", "Australia":"🇦🇺","Tajikistan":"🇹🇯","Thailand":"🇹🇭", "Chad":"🇹🇩","Martinique":"🇲🇶","Mauritania":"🇲🇷","Antarctica":"🇦🇶","Montserrat":"🇲🇸","Togo":"🇹🇬","Malawi":"🇲🇼","Mexico":"🇲🇽","Malaysia":"🇲🇾","Timor-Leste":"🇹🇱","Hong Kong":"🇭🇰"]
+    // set default first selection of keys - gets reset when alert is dismissed
     @State private var keys = ["Malta", "Argentina", "Austria", "Maldives"]
     @State private var correctAnswer = Int.random(in: 0...3)
     @State private var showingScore = false
@@ -19,7 +19,8 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     var body: some View {
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all) 
+            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all) // doesn't seem to work
             VStack(spacing: 5.0){
                 VStack {
                     Text("Tap the flag of")
